@@ -1,7 +1,8 @@
 #include <iostream>
+#include <build/Student.h>
 
 int main()
 {
-    std::cout << "hello world!\n" << std::endl;
+    
     return 0;
 }
