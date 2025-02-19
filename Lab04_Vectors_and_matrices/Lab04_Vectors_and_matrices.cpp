@@ -64,5 +64,32 @@ int main() {
     std::cout << "A = " << A << "\n" << std::endl;
     std::cout << "B = " << B << std::endl;
 
+    std::cout << "A = " << glm::transpose(A) << "\n" << std::endl;
+    std::cout << "B = " << glm::transpose(B) << std::endl;
+
+    // Arithmetic operations on matrices
+    printf("\nArithmetic operations on matrices:\n");
+    std::cout << "A + B = " << glm::transpose(A + B) << "\n" << std::endl;
+    std::cout << "A - B = " << glm::transpose(A - B) << "\n" << std::endl;
+    std::cout << "2A    = " << glm::transpose(2.0f * A) << "\n" << std::endl;
+    std::cout << "A / 3 = " << glm::transpose(A / 3.0f) << "\n" << std::endl;
+
+    std::cout << "A * B = " << glm::transpose(B * A) << "\n" << std::endl;
+    std::cout << "B * A = " << glm::transpose(A * B) << "\n" << std::endl;
+
+    // The identity matrix
+    printf("\nThe identity matrix:\n");
+    glm::mat2 I;
+    std::cout << "I = " << glm::transpose(I) << "\n" << std::endl;
+
+    // Inverse matrices
+    printf("\nInverse matrices:\n");
+    glm::mat2 invA = glm::inverse(A);
+    glm::mat2 invB = glm::inverse(B);
+    std::cout << "invA = " << glm::transpose(invA) << "\n" << std::endl;
+    std::cout << "invB = " << glm::transpose(invB) << "\n" << std::endl;
+    std::cout << "invA * A = " << glm::transpose(A * invA) << "\n" << std::endl;
+    std::cout << "invB * B = " << glm::transpose(B * invB) << "\n" << std::endl;
+
     return 0;
 }
