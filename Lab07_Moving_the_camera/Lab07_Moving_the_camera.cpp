@@ -10,6 +10,7 @@
 
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
+void mouseInput(GLFWwindow* window);
 
 // Create camera object
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f));
@@ -255,6 +256,12 @@ int main( void )
 
         // Get inputs
         keyboardInput(window);
+        mouseInput(window);
+
+        // Capture mouse inputs
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwPollEvents();
+        glfwSetCursorPos(window, 1024 / 2, 768 / 2);
         
         // Clear the window
         glClearColor(0.2f, 0.2f, 0.2f, 0.0f);
@@ -333,4 +340,16 @@ void keyboardInput(GLFWwindow *window)
         camera.eye += 5.0f * deltaTime * camera.right;
 
 
+}
+
+void mouseInput(GLFWwindow* window)
+{
+    // Get mouse cursor position and reset to centre
+    double xPos, yPos;
+    glfwGetCursorPos(window, &xPos, &yPos);
+    glfwSetCursorPos(window, 1024 / 2, 768 / 2);
+
+    // Update yaw and pitch angles
+    camera.yaw += 0.0005f * float(xPos - 1024 / 2);
+    camera.pitch += 0.0005f * float(768 / 2 - yPos);
 }
