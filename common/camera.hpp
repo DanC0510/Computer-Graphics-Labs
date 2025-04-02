@@ -18,8 +18,11 @@ public:
     glm::vec3 target;
     glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
+    // Quaternion camera
+    Quaternion orientation = Quaternion(pitch, yaw);
+
     // Camera Euler angles
-    float yaw = Maths::radians(-90.0f);
+    float yaw = 0.0f;
     float pitch = 0.0f;
     float roll = 0.0f;
 
@@ -37,4 +40,5 @@ public:
     // Methods
     void calculateMatrices();
     void calculateCameraVectors();
+    void quaternionCamera();
 };

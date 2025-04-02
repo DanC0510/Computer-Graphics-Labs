@@ -5,6 +5,20 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/io.hpp>
 
+// Quaternion class
+class Quaternion
+{
+public:
+    float w, x, y, z;
+
+    // Constructors
+    Quaternion();
+    Quaternion(const float pitch, const float yaw);
+    Quaternion(const float w, const float x, const float y, const float z);
+
+    glm::mat4 matrix();
+};
+
 // Maths class
 class Maths
 {
@@ -16,5 +30,4 @@ public:
     static glm::mat4 rotate(const float& angle, glm::vec3 v);
 
     static glm::mat4 scale(const glm::vec3& v);
-
 };
